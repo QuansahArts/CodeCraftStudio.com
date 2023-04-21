@@ -295,7 +295,7 @@ span {
   transform: scale(1.1);
   transition: 1s;
 }
-.contact-form {
+/* .contact-form {
   display: grid;
   place-items: center;
   margin-top: 2rem;
@@ -336,7 +336,7 @@ form textarea {
 }
 .contact-button:hover {
   background: var(--hover);
-}
+} */
 .footer {
   display: grid;
   place-items: center;
