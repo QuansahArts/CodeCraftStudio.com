@@ -1,2 +1,2 @@
-# Quansah-s-Arts.com
+# ScarTechgh.com
 Web Developing &amp; Graphic Designing
