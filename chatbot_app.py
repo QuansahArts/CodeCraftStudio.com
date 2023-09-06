@@ -15,14 +15,18 @@ responses = {
     "connect_to_agent": "Let me connect you to a human agent who can assist you further."
 }
 
-@app.route("/", methods=["GET", "POST"])
+# ...
+
+@app.route("/chat", methods=["GET", "POST"])
 def chat():
     if request.method == "POST":
         user_message = request.json.get("message")
         response = get_response(user_message)
         return jsonify({"message": response})
     else:
-        return render_template("chatbot.html")
+        return render_template("index.html")
+
+# ...
 
 def get_response(user_message):
     # Implement logic to determine the appropriate response based on user input
