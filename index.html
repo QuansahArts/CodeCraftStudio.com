@@ -23,7 +23,37 @@
 
   gtag('config', 'G-7Q4WZDRNEF');
 </script>
- 
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const chatBox = document.getElementById('chat-box');
+        const userInputForm = document.getElementById('user-input-form');
+        const userInput = document.getElementById('user-input');
+
+        userInputForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userMessage = userInput.value;
+            chatBox.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
+            userInput.value = '';
+
+            // Send userMessage to your Flask server using AJAX or fetch
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.innerHTML += '<p><strong>ChatBot:</strong> ' + data.message + '</p>';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
 </head>
 <body>
     <!-- Navbar -->
@@ -99,6 +129,15 @@
             <source src="TransformYourOnlineP.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>         -->
+                <!-- Add this HTML code where you want the chat to appear -->
+<div id="chat-container">
+    <div id="chat-box"></div>
+    <form id="user-input-form">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
     </section>
     <!-- Skills -->
     <section class="skills" id="skills">
