@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodeCraftStudio Chatbot</title>
+</head>
+<body>
+    <h1>Welcome to CodeCraftStudio's Customer Service Chatbot</h1>
+    
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <form id="user-input-form">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    
+    <script>
+        // JavaScript code to handle user input and display responses
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatBox = document.getElementById('chat-box');
+            const userInputForm = document.getElementById('user-input-form');
+            const userInput = document.getElementById('user-input');
+
+            userInputForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userMessage = userInput.value;
+                chatBox.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
+                userInput.value = '';
+
+                // Send userMessage to your Flask server using AJAX or fetch
+                // Receive and display the bot's response in the chatBox
+            });
+        });
+    </script>
+</body>
+</html>
 
